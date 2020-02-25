@@ -1,0 +1,9 @@
+Feb 17 00:13:44 host kern: [234.456345] MSG:  IN=ext0 MAC=d8:9e:fe:82:e8:e4 PROTO=UDP SPT=1432
+Feb 18 06:25:29 host kern: [234.456345] MSG:  IN=ext0 MAC=d8:9e:fe:82:e8:e4 PROTO=UDP SPT=1432
+Feb 19 06:25:29 host kern: [234.456345] MSG: IN=ext0 MAC=d8:9e:fe:82:e8:e4 PROTO=UDP SPT=1432
+Feb 20 06:25:29 host kern: [234.456345] MSG: IN=ext0 MAC=d8:9e:fe:82:e8:e4 PROTO=UDP SPT=143
+Feb 21 06:25:29 host kern: [234.456345] MSG: IN=ext0 MAC=d8:9e:fe:82:e8:e4 PROTO=TCP SPT=143
+Feb 21 06:25:29 host kern: [234.456345] MSG: IN=ext0 MAC=D8:9E:FE:82:E8:E4 PROTO=TCP SPT=143
+Feb 22 06:25:29 host kern: [2.4] MSG: IN=ext0 MAC=d8:9e:fe:82:e8:e4 PROTO=TCP SPT=143
+Feb 23 06:25:29 host kern: [2.4] MSG: IN=ext1 MAC=d8:9e:fe:82:e8:e4 PROTO=TCP SPT=143
+Feb 24 06:25:29 host kern:[2.4] MSG: IN=ext1 MAC=d8:9e:fe:82:e8:e4 PROTO=TCP SPT=143
