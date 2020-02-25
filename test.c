@@ -115,7 +115,7 @@ test_tok(void)
     if (strcmp(tok, "00") != 0)
 	FAIL();
 
-    if (tok_get(tok) != TOK_PUNCT)
+    if (tok_get(tok) != TOK_WORD)
 	FAIL();
     if (strcmp(tok, ":") != 0)
 	FAIL();
@@ -125,19 +125,7 @@ test_tok(void)
     if (strcmp(tok, "13") != 0)
 	FAIL();
 
-    tok_unget(TOK_WORD, tok);
     if (tok_get(tok) != TOK_WORD)
-	FAIL();
-    if (strcmp(tok, "13") != 0)
-	FAIL();
-
-    if (tok_get(tok) != TOK_PUNCT)
-	FAIL();
-    if (strcmp(tok, ":") != 0)
-	FAIL();
-
-    tok_unget(TOK_PUNCT, tok);
-    if (tok_get(tok) != TOK_PUNCT)
 	FAIL();
     if (strcmp(tok, ":") != 0)
 	FAIL();

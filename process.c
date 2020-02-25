@@ -60,10 +60,7 @@ process_file(char *fname)
     tok_open(fname);
 
     for (eof = 0; !eof; ) {
-	/*
-	 * Take words and punctuation until EOL/EOF,
-	 * generating unique-ified signature.
-	 */
+	/* Take words until EOL/EOF, generating unique-ified signature. */
 	sigend = &sig[sig_size - 1];
 	sigptr = sig;
 
@@ -80,14 +77,13 @@ process_file(char *fname)
 	    if (t == TOK_EOL)
 		break;
 
-	    /* xxx - don't need SPACE or PUNCT to be separate from WORD? */
 	    if (t == TOK_WORD) {
 		if (elide(tok)) {
 		    tok[0] = '#';
 		    tok[1] = '\0';
 		}
 	    } else
-		assert(t == TOK_SPACE || t == TOK_PUNCT);
+		assert(t == TOK_SPACE);
 
 	    for (tokptr = tok; (ch = *tokptr) != '\0'; tokptr++)
 		if (sigptr < sigend)

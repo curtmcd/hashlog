@@ -5,11 +5,7 @@
 
 #include "htab.h"
 
-/*
- * Size of hash table should be a bit larger than the expected number of
- * unique signatures, and ideally a prime number.
- */
-#define HTAB_BUCKETS	10007
+#define HTAB_BUCKETS	997	/* Prime; table doesn't have to be too big */
 
 typedef u_int32_t hash_t;
 typedef u_int32_t count_t;

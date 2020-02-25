@@ -13,11 +13,9 @@
 #define TOK_EOF		0
 #define TOK_EOL		1
 #define TOK_SPACE	2
-#define TOK_PUNCT	3
-#define TOK_WORD	4
+#define TOK_WORD	3
 
 void tok_open(char *fname);
 void tok_close(void);
 
 int tok_get(char *tok);
-void tok_unget(int t, char *tok);

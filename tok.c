@@ -3,15 +3,10 @@
 #include "gc.h"
 #include "tok.h"
 
-int tok_pushback_code;
-char tok_pushback_buf[TOK_SIZE];
-
 void
 tok_open(char *fname)
 {
     gc_open(fname);
-
-    tok_pushback_code = TOK_NONE;
 }
 
 void
@@ -29,14 +24,6 @@ tok_get(char *tok)
 {
     int c;
     int pos;
-
-    if (tok_pushback_code != TOK_NONE) {
-	int t = tok_pushback_code;
-	tok_pushback_code = TOK_NONE;
-	if (t != TOK_EOF && t != TOK_EOL && t != TOK_SPACE)
-	    strcpy(tok, tok_pushback_buf);
-	return t;
-    }
 
     c = gc_get();
 
@@ -71,8 +58,9 @@ tok_get(char *tok)
     /* Not EOF, EOL or SPACE */
 
     if (!ISWORD(c)) {
+	/* Left with single-character punctuation */
 	tok[1] = '\0';
-	return TOK_PUNCT;
+	return TOK_WORD;
     }
 
     /* Word */
@@ -92,18 +80,4 @@ tok_get(char *tok)
 
     tok[pos] = '\0';
     return TOK_WORD;
-}
-
-/*
- * Can only unget one token.
- */
-
-void
-tok_unget(int t, char *tok)
-{
-    tok_pushback_code = t;
-    if (t != TOK_EOF && t != TOK_EOL && t != TOK_SPACE) {
-	strncpy(tok_pushback_buf, tok, sizeof (tok_pushback_buf) - 1);
-	tok_pushback_buf[sizeof (tok_pushback_buf) - 1] = '\0';
-    }
 }
