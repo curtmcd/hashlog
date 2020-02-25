@@ -28,11 +28,13 @@ elide(char *s)
     if (ISDIGIT(s[0]))
 	return 1;
 
+#if 0
     /*
      * Two-character strings of valid hex digits, to help ignore MAC addresses
      */
     if (ISHEX(s[0]) && ISHEX(s[1]) && s[2] == '\0')
 	return 1;
+#endif
 
     /*
      * Three-letter month and day-of-week abbreviations
